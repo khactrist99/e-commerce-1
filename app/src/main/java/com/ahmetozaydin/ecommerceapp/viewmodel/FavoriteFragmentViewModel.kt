@@ -6,8 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ahmetozaydin.ecommerceapp.data.*
-import com.ahmetozaydin.ecommerceapp.fragment.FavoriteFragment
-import com.ahmetozaydin.ecommerceapp.model.Product
 import kotlinx.coroutines.*
 
 class FavoriteFragmentViewModel : ViewModel() {

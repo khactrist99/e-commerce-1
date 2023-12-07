@@ -67,16 +67,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_category -> {
                     beginTransaction(CategoryFragment())
                 }
-                R.id.action_favorites -> {
-                    //val favoritesFragment = FavoriteFragment()//TODO(implement a better structure)
-                    beginTransaction(FavoriteFragment())
-                }
+
                 R.id.action_cart -> {
                     beginTransaction(CartFragment())
                 }
-                R.id.action_profile -> {
-                    beginTransaction(ProfileFragment())
-                }
+
                 else -> return@setOnItemSelectedListener true
             }
             return@setOnItemSelectedListener true
