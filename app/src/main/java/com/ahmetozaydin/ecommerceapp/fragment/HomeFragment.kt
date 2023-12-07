@@ -71,7 +71,7 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
                 }
             }
         })
-
+        binding.searchBarProduct
         binding.searchButton.setOnClickListener {
             val intent = Intent(context, MainActivity2::class.java)
             startActivity(intent)

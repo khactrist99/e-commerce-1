@@ -18,9 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerceapp"
         tools:targetApi="31">
-        <activity
-            android:name=".view.MainActivity2"
-            android:exported="false" />
+
         <activity
             android:name=".view.CategoryActivity"
             android:exported="false"></activity>
@@ -35,7 +33,10 @@
         <activity
             android:name=".view.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Ecommerceapp.NoActionBar">
+            android:theme="@style/Theme.Ecommerceapp.NoActionBar"/>
+        <activity
+            android:name=".view.MainActivity2"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
