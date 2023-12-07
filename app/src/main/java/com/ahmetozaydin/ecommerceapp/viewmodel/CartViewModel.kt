@@ -75,7 +75,7 @@ class CartViewModel() : ViewModel() {
         cartList.forEach { cart ->
             println("the value of cartlist : $cartList")
             val quantity = cart.quantity
-            val price = cart.price
+            val price = cart.price?.toInt()
             total += quantity * price!!
         }
         println("the value of temp total : $total")

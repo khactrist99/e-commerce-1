@@ -1,5 +1,6 @@
 package com.ahmetozaydin.ecommerceapp.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
@@ -12,6 +13,7 @@ import com.ahmetozaydin.ecommerceapp.adapter.CategoryAdapter
 import com.ahmetozaydin.ecommerceapp.adapter.ProductsAdapter
 import com.ahmetozaydin.ecommerceapp.databinding.FragmentHomeBinding
 import com.ahmetozaydin.ecommerceapp.model.Product
+import com.ahmetozaydin.ecommerceapp.view.MainActivity2
 import com.ahmetozaydin.ecommerceapp.viewmodel.HomeViewModel
 import java.util.*
 
@@ -82,6 +84,11 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
                 }
             }
         })
+
+        binding.searchButton.setOnClickListener {
+            val intent = Intent(context, MainActivity2::class.java)
+            startActivity(intent)
+        }
     }
 
 /*

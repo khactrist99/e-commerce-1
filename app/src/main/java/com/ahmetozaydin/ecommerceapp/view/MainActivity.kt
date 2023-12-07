@@ -5,6 +5,7 @@ import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val BASE_URL = "https://dummyjson.com/"
+        const val BASE_URL2 = "https://mynodejsproject0602992.wl.r.appspot.com/"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
         val builder = AlertDialog.Builder(this@MainActivity)
         builder.setMessage("No Internet Connection")
         builder.setTitle("Attention!")

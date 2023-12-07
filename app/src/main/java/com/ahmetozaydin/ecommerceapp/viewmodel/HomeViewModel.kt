@@ -45,11 +45,11 @@ class HomeViewModel : ViewModel() {
     private fun getDataFromAPI(context: Context){
         val retrofit = Retrofit
             .Builder()
-            .baseUrl(MainActivity.BASE_URL)
+            .baseUrl(MainActivity.BASE_URL2)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ProductsAPI::class.java)
-        val call = service.getData()
+        val call = service.getData2()
         call.enqueue(object : Callback<BaseClass> {
             override fun onFailure(call: Call<BaseClass>, t: Throwable) {
                 t.printStackTrace()
@@ -60,6 +60,7 @@ class HomeViewModel : ViewModel() {
             ) {
                 response.body()?.let {
                     println("onResponse is worked")
+                    println(it)
                     it.products?.let { it1 -> storeInSQLite(context, it1 as ArrayList<Product>) }
                     _products.postValue(it.products as ArrayList<Product>?)
                 }
