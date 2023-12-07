@@ -32,9 +32,6 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val layoutManager = GridLayoutManager(activity, 2)// oluyorsa layout managerları birleştir.
         binding.recyclerView.layoutManager = layoutManager
-        //fetchData()
-        binding.searchBarProduct.onActionViewExpanded()
-        binding.searchBarProduct.clearFocus()
         return binding.root
     }
 
@@ -55,17 +52,7 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
             }
 
         })
-        binding.searchBarProduct.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                search(query)
-                return true
-            }
 
-            override fun onQueryTextChange(newText: String): Boolean {
-                search(newText)
-                return true
-            }
-        })
         var state = 1
 
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -91,70 +78,7 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
         }
     }
 
-/*
-    private fun fetchData() {
-        val retrofit = Retrofit
-            .Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val service = retrofit.create(ProductsAPI::class.java)
-        activity?.runOnUiThread(Runnable {
-            val call = service.getData()
-            call.enqueue(object : Callback<BaseClass> {
-                override fun onFailure(call: Call<BaseClass>, t: Throwable) {
-                    println("error")
-                    t.printStackTrace()
-                    println(t)
-                }
 
-                override fun onResponse(
-                    call: Call<BaseClass>,
-                    response: Response<BaseClass>
-                ) {
-                    response.body()?.let { it ->
-                        if (!isDone) {
-                            isDone = true
-                            it.products?.forEach {
-                                products.add(it)
-                            }
-                        }
-                    }
-                    productsAdapter = ProductsAdapter(
-                        products,
-                        requireContext() // TODO Fragment HomeFragment not attached to a context.
-                    )
-                    binding.recyclerView.adapter = productsAdapter
-                    //val horizontalLayoutManager: RecyclerView.LayoutManager =
-                    //   LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                    //binding.recyclerViewCategories.layoutManager = horizontalLayoutManager
-                    //val categories = ArrayList<String>()
-                    */
-/*products.forEach {
-                        if (!categories.contains(it.category) || categories.size == 0) {
-                            it.category?.let { it1 -> categories.add(it1) }
-                        }
-                    }*//*
-
-                    //categoryAdapter = context?.let { CategoryAdapter(products, categories, it) }
-                    //binding.recyclerViewCategories.adapter = categoryAdapter
-                    // binding.searchBarProduct.isSubmitButtonEnabled = true
-                }
-            })
-        })
-    }
-*/
-
-    /* fun loadImageFromWeb(url: ArrayList<Product>?) {
-          try {
-             url?.forEach {
-                 val `is`: InputStream = URL(it.image?.get(1)).content as InputStream
-                 imageViews.add(Drawable.createFromStream(`is`, "src name"))
-             }
-         } catch (e: Exception) {
-             e.printStackTrace()
-         }
-     }*/
     override fun onItemClick(products: Product) {
         Toast.makeText(activity, "item is clicked", Toast.LENGTH_SHORT).show()
     }
