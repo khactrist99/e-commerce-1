@@ -30,7 +30,7 @@ class HomeViewModel : ViewModel() {
     private var customPreferences = CustomSharedPreferences()
     private var refreshTime = 0.01 * 60 * 1000 * 1000 * 1000L
 
-    fun getData(context: Context) {
+        fun getData(context: Context) {
         val updateTime = customPreferences.getTime()
         //Log.i(TAG, "$refreshTime  getData: "+(System.nanoTime() - updateTime!!))
         if (updateTime != null && updateTime != 0L && System.nanoTime() - updateTime < refreshTime) {
