@@ -30,7 +30,7 @@ class HomeViewModel : ViewModel() {
     private var customPreferences = CustomSharedPreferences()
     private var refreshTime = 0.01 * 60 * 1000 * 1000 * 1000L
 
-        fun getData(context: Context, input: String) {
+        fun getData(context: Context, filter: String) {
 //            if (input != null) {
 //                Toast.makeText(context,"Products From API",Toast.LENGTH_LONG).show()
 //            } else {
@@ -43,19 +43,21 @@ class HomeViewModel : ViewModel() {
                 getDataFromSQLite(context)
 //                Toast.makeText(context,"Products From SQLite",Toast.LENGTH_LONG).show()
             }else{
-                getDataFromAPI(context, input)
+                getDataFromAPI(context, filter)
 //                Toast.makeText(context,"Products From API",Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun getDataFromAPI(context: Context, input: String){
+    private fun getDataFromAPI(context: Context, filter: String){
         val retrofit = Retrofit
             .Builder()
             .baseUrl(MainActivity.BASE_URL2)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ProductsAPI::class.java)
-        val call = service.getData2(input)
+        println("getDataFromAPI: ${MainActivity.BASE_URL2 + filter}")
+        val call = service.getData3(MainActivity.BASE_URL2 + filter)
+
         call.enqueue(object : Callback<BaseClass> {
             override fun onFailure(call: Call<BaseClass>, t: Throwable) {
                 t.printStackTrace()
@@ -105,7 +107,7 @@ class HomeViewModel : ViewModel() {
                     ImageDatabase.invoke(context).imageDao().getRecord(it1)
                 }
                 val list = Product(it.id,it.title,it.description,it.price,it.discountPercentage,it.rating,it.stock,it.brand,it.category,
-                    it.thumbnail,imageList)
+                    it.thumbnail, imageList)
                 products1.add(list)
             }
             Toast.makeText(context,"Products From SQLite",Toast.LENGTH_LONG).show()

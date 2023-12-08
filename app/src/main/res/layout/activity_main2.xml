@@ -20,39 +20,131 @@
 
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewAllImages"
-            android:layout_width="match_parent"
-            android:layout_height="340dp"
-            android:orientation="horizontal"
-            android:padding="6dp" />
+        <TextView
+            android:id="@+id/textViewKeyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keyword"
+             />
 
 
         <EditText
             android:id="@+id/userinput"
-            android:layout_margin="10dp"
-            android:padding="17dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewKeyword"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="17dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/searchButton"
+        <TextView
+            android:id="@+id/errorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/userinput"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:background="@drawable/ripple"
-            android:backgroundTint="@color/dark_orange"
-            android:fontFamily="sans-serif"
-            android:paddingLeft="30dp"
-            android:paddingTop="-55dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="-30dp"
-            android:text="@string/add_to_chart"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:text="Please enter mandatory field"
+            android:visibility="gone"
+            android:textColor="#FF0000"
+            />
+
+        <TextView
+                android:id="@+id/textViewCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:layout_below="@id/errorText"/>
+
+            <Spinner
+                android:id="@+id/category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewCategory"/>
+
+        <TextView
+            android:id="@+id/conditionn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/category"
+            android:layout_marginTop="2dp"
+            android:text="Condition" />
+        <LinearLayout
+            android:id="@+id/conditionCheckboxs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_below="@id/conditionn">
+
+            <CheckBox
+                android:id="@+id/neww"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:text="New" />
+
+            <CheckBox
+                android:id="@+id/used"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Used" />
+
+            <CheckBox
+                android:id="@+id/unspecified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="-2dp"
+                android:text="Unspecified" />
+        </LinearLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shipping Options"
+                android:id="@+id/textViewShipping"
+                android:layout_below="@id/conditionCheckboxs"/>
+        <LinearLayout
+            android:id="@+id/shippingCheckboxs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/textViewShipping">
+        <CheckBox
+            android:id="@+id/localPickupOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Local Pickup"
+            android:layout_below="@id/textViewShipping"/>
+
+
+        <CheckBox
+            android:id="@+id/freeShippingOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Free Shipping" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/shippingCheckboxs">
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search" />
+                 />
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset" />
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>

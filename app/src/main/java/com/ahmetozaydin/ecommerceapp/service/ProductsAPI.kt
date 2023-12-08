@@ -14,6 +14,10 @@ interface ProductsAPI {
     fun getData() : Call<BaseClass>
     @GET("findingService/keywords={input}&buyerPostalCode=90007&itemFilter(0).name=MaxDistance&itemFilter(0).value=10&itemFilter(1).name=FreeShippingOnly&itemFilter(1).value=false&itemFilter(2).name=LocalPickupOnly&itemFilter(2).value=false&itemFilter(3).name=HideDuplicateItems&itemFilter(3).value=true&itemFilter(4).name=Condition&itemFilter(4).value(0)=New&itemFilter(4).value(1)=Used&itemFilter(4).value(2)=Unspecified&outputSelector(0)=SellerInfo&outputSelector(1)=StoreInfo") //extension
     fun getData2(@Path("input") text: String ) : Call<BaseClass>
+
+    @GET
+    fun getData3(@Url text : String) : Call<BaseClass>
+
     @GET
     fun getCategorizedProduct(@Url text : String) : Call<BaseClass>
     @GET("categories")

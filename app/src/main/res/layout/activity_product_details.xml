@@ -58,7 +58,8 @@
             android:button="@drawable/selector_favorites"
             android:scaleX="0.9"
             android:scaleY="0.9"
-            app:useMaterialThemeColors="false" />
+            app:useMaterialThemeColors="false"
+            android:visibility="invisible"/>
 
         <CheckBox
             android:id="@+id/checkBoxCart"
@@ -182,7 +183,7 @@
             android:paddingRight="30dp"
             android:paddingBottom="-30dp"
             android:src="@drawable/ic_cart"
-            />
+            android:visibility="invisible"/>
 
     </RelativeLayout>
 </ScrollView>

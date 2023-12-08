@@ -21,21 +21,21 @@
 
         <activity
             android:name=".view.CategoryActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".view.ProductDetailsActivity"
             android:exported="true"
             android:theme="@style/Theme.Ecommerceapp.NoActionBar" />
         <activity
-            android:name=".view.LogInActivity"
-            android:exported="true"
-            android:theme="@style/SplashScreenTheme"></activity>
-        <activity
             android:name=".view.MainActivity"
             android:exported="true" />
         <activity
             android:name=".view.MainActivity2"
-            android:exported="true">
+            android:exported="true"/>
+        <activity
+            android:name=".adapter.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

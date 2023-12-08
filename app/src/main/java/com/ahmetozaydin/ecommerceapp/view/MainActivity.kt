@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        val input = intent.getStringExtra("userInput")
-        println("MainActivity: $input")
+        val filter = intent.getStringExtra("userInput")
+        println("MainActivity: $filter")
         val builder = AlertDialog.Builder(this@MainActivity)
         builder.setMessage("No Internet Connection")
         builder.setTitle("Attention!")
@@ -59,11 +59,11 @@ class MainActivity : AppCompatActivity() {
 
         }.launchIn(lifecycleScope)
 
-        beginTransaction(HomeFragment(), input)
+        beginTransaction(HomeFragment(), filter)
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.action_home -> {
-                    beginTransaction(homeFragment, input)
+                    beginTransaction(homeFragment, filter)
                 }
 
                 R.id.action_cart -> {

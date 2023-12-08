@@ -25,14 +25,14 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
     private var matchedProduct: ArrayList<Product> = arrayListOf()
     private var products = ArrayList<Product>()
     private lateinit var productsAdapter: ProductsAdapter
-    private var input: String? = null
+    private var filter: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val layoutManager = GridLayoutManager(activity, 2)// oluyorsa layout managerları birleştir.
-        this.input = arguments?.getString("inputKey")
+        this.filter = arguments?.getString("inputKey")
         binding.recyclerView.layoutManager = layoutManager
         return binding.root
     }
@@ -41,8 +41,8 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         //viewModel.getDataFromUrl()
-        println("onViewCreated: $input")
-        viewModel.getData(requireContext(), input!!)
+        println("onViewCreated: $filter")
+        viewModel.getData(requireContext(), filter!!)
         viewModel.products.observe(viewLifecycleOwner, androidx.lifecycle.Observer { products ->
             products.let {
                 productsAdapter = products?.let { it1 ->
