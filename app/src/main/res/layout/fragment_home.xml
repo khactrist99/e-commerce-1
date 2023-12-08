@@ -24,14 +24,7 @@
         app:logoScaleType="centerCrop"
         app:titleCentered="false">
 
-        <SearchView
-            android:id="@+id/searchBarProduct"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/selector_search_view"
-            android:iconifiedByDefault="false"
-            android:queryHint="@string/search_for_product"
-            android:searchHintIcon="@drawable/ic_category" />
+
     </com.google.android.material.appbar.MaterialToolbar>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -42,14 +35,6 @@
         android:scrollbarSize="3dp"
         android:scrollbars="vertical"
         app:layout_scrollFlags="scroll" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/collapsingToolBarLayout"
-        android:text="Search" />
-
 
     <LinearLayout
         android:id="@+id/linearLayoutEmptySearchMessage"

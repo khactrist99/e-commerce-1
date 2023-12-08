@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
@@ -66,8 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/checkBoxFavorite"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginTop="502dp"
+            android:layout_marginEnd="3dp"
             android:background="@drawable/shape_ring"
             android:button="@drawable/selector_cart"
             android:scaleX="1"
@@ -168,7 +168,7 @@
             android:textColor="@color/green"
             android:textSize="14sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/buttonAddToShopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,15 +177,12 @@
             android:layout_gravity="center"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:background="@drawable/ripple"
-            android:backgroundTint="@color/dark_orange"
-            android:fontFamily="sans-serif"
             android:paddingLeft="30dp"
             android:paddingTop="-55dp"
             android:paddingRight="30dp"
             android:paddingBottom="-30dp"
-            android:text="@string/add_to_chart"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:src="@drawable/ic_cart"
+            />
+
     </RelativeLayout>
 </ScrollView>

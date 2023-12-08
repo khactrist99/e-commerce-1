@@ -32,8 +32,7 @@
             android:theme="@style/SplashScreenTheme"></activity>
         <activity
             android:name=".view.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Ecommerceapp.NoActionBar"/>
+            android:exported="true" />
         <activity
             android:name=".view.MainActivity2"
             android:exported="true">

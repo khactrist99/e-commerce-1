@@ -67,8 +67,7 @@ class CategorizedProduct(
             intent.putExtra("product",products[position])
             context.startActivity(intent)
         }
-        holder.binding.buttonAddToCart.setOnClickListener {
-        }
+
     }
     override fun getItemCount(): Int {
         return products.size

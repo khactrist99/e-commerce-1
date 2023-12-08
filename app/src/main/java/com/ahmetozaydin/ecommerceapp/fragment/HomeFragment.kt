@@ -25,12 +25,14 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
     private var matchedProduct: ArrayList<Product> = arrayListOf()
     private var products = ArrayList<Product>()
     private lateinit var productsAdapter: ProductsAdapter
+    private var input: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val layoutManager = GridLayoutManager(activity, 2)// oluyorsa layout managerları birleştir.
+        this.input = arguments?.getString("inputKey")
         binding.recyclerView.layoutManager = layoutManager
         return binding.root
     }
@@ -39,7 +41,8 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         //viewModel.getDataFromUrl()
-        viewModel.getData(requireContext())
+        println("onViewCreated: $input")
+        viewModel.getData(requireContext(), input!!)
         viewModel.products.observe(viewLifecycleOwner, androidx.lifecycle.Observer { products ->
             products.let {
                 productsAdapter = products?.let { it1 ->
@@ -71,11 +74,7 @@ class HomeFragment : Fragment(), ProductsAdapter.Listener, CategoryAdapter.Liste
                 }
             }
         })
-        binding.searchBarProduct
-        binding.searchButton.setOnClickListener {
-            val intent = Intent(context, MainActivity2::class.java)
-            startActivity(intent)
-        }
+
     }
 
 

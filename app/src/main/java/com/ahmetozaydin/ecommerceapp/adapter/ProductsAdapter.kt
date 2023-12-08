@@ -57,7 +57,7 @@ class ProductsAdapter(
         // holder.binding.textViewProductPrice.text = "$".also {products[position].price.toString() }
         cartDatabase = CartDatabase.invoke(context)
         //Picasso.with(context).load(products[position].thumbnail).into(holder.binding.imageOfProduct)
-        holder.binding.buttonAddToCart.setOnClickListener {
+        holder.binding.checkBoxCart.setOnClickListener {
             CoroutineScope(Dispatchers.IO).
                 launch { // Todo(if there is a thread switch to coroutine)
                     if (cartDatabase?.cartDao()

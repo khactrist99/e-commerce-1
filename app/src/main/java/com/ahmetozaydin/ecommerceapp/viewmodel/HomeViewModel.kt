@@ -30,26 +30,32 @@ class HomeViewModel : ViewModel() {
     private var customPreferences = CustomSharedPreferences()
     private var refreshTime = 0.01 * 60 * 1000 * 1000 * 1000L
 
-        fun getData(context: Context) {
-        val updateTime = customPreferences.getTime()
-        //Log.i(TAG, "$refreshTime  getData: "+(System.nanoTime() - updateTime!!))
-        if (updateTime != null && updateTime != 0L && System.nanoTime() - updateTime < refreshTime) {
-            getDataFromSQLite(context)
-            Toast.makeText(context,"Products From SQLite",Toast.LENGTH_LONG).show()
-        }else{
-            getDataFromAPI(context)
-            Toast.makeText(context,"Products From API",Toast.LENGTH_LONG).show()
+        fun getData(context: Context, input: String) {
+//            if (input != null) {
+//                Toast.makeText(context,"Products From API",Toast.LENGTH_LONG).show()
+//            } else {
+//                Toast.makeText(context,"Products From SQLite",Toast.LENGTH_LONG).show()
+//            }
+
+            val updateTime = customPreferences.getTime()
+            //Log.i(TAG, "$refreshTime  getData: "+(System.nanoTime() - updateTime!!))
+            if (updateTime != null && updateTime != 0L && System.nanoTime() - updateTime < refreshTime) {
+                getDataFromSQLite(context)
+//                Toast.makeText(context,"Products From SQLite",Toast.LENGTH_LONG).show()
+            }else{
+                getDataFromAPI(context, input)
+//                Toast.makeText(context,"Products From API",Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun getDataFromAPI(context: Context){
+    private fun getDataFromAPI(context: Context, input: String){
         val retrofit = Retrofit
             .Builder()
             .baseUrl(MainActivity.BASE_URL2)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(ProductsAPI::class.java)
-        val call = service.getData2()
+        val call = service.getData2(input)
         call.enqueue(object : Callback<BaseClass> {
             override fun onFailure(call: Call<BaseClass>, t: Throwable) {
                 t.printStackTrace()
